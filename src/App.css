@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  /* background-color: blue; */
+}
+
+.navbar {
+  background:#fff;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top:0;
+  left: 0;
+}
+.navbar-menu .navbar-start a {
+  color: #969191;
+}
+
+.section {
+  height: 90vh;
+}
+
+.nav-item > .active {
+  border-bottom: 1px solid #333;
+}
+
+.main {
+  font-size: 4rem;
+  
+}
+.hidden {
+  display: none;
+}
+
+.hand {
+  animation: updown 2s ease infinite;
+  /* animation-iteration-count: 5; */
+}
+.footer {
+  width:100%;
+  position:fixed;
+  bottom:0;
+  left:0;
+  margin:0;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+
+@media screen and (max-width: 768px){
+  .hand {
+    display: none;
+  }
+}
+
+
