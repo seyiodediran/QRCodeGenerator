@@ -62,7 +62,7 @@ const QRCode = ({ showQR, to, content, sm }) => {
 
                 :
                 <div>
-                    <h1 className="title mb-4">SMS</h1><br />
+                    <h1 className="title mb-4 has-text-centered">SMS</h1><br />
                     <span className="notification is-warning has-text-weight-bold">
                         Please enter information
                     </span>

@@ -102,7 +102,7 @@ const QRCode = ({ showQR, usr }) => {
 
                 :
                 <div>
-                    <h1 className="title mb-4">User ID</h1><br />
+                    <h1 className="title mb-4 has-text-centered">User ID</h1><br />
                     <span className="notification is-warning has-text-weight-bold">
                         Please enter information
                     </span>

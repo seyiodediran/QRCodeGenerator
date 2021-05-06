@@ -59,7 +59,7 @@ const QRCode = ({ showQR, mail }) => {
                 </div>
                 :
                 <div>
-                    <h1 className="title mb-4">Email</h1><br />
+                    <h1 className="title mb-4 has-text-centered">Email</h1><br />
                     <span className="notification is-warning has-text-weight-bold">
                         Please enter information
                 </span>
