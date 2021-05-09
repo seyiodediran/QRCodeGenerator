@@ -2,10 +2,10 @@ import React from 'react';
 import head from '../../img/head.png';
 
 
-const QRCode = ({ showQR, to, content, sm }) => {
+const QRCode = ({ showQR, sm }) => {
     const QRCode = require('qrcode.react');
 
-
+    //hideQR function here is a function i defined to hide the QRCode from displaying on the page
     const hideQR = (e) => {
         e.preventDefault()
         showQR = !showQR
@@ -13,11 +13,12 @@ const QRCode = ({ showQR, to, content, sm }) => {
 
     return (
         <div>
+            {/* tenary operator used here to decide what to display based on the boolean value currently stored in our state showQR */}
             {showQR ?
-                <div>
+                <div className="columns is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
                     <QRCode className="" id="qrcode2" value={`SMSTO:${sm.to}:${sm.content}`} fgColor="darkblue" size={256} />
                     <div className="columns is-flex is-align-items-center is-justify-content-center">
-                        <div className="column is-10">
+                        <div className="column">
                             <div className="card has-background-dark has-text-white-ter mt-4">
                                 <div className="card-content is-success is-light ">
                                     <div className="content">
@@ -30,8 +31,10 @@ const QRCode = ({ showQR, to, content, sm }) => {
                                             </div>
 
                                             <div className="column is-7">
-                                                <p className="has-text-left is-size-5">To: {sm.to} </p>
-                                                <p className="has-text-left is-size-5">Content: {sm.content} </p>
+
+                                                {/* based on the sms prop we passed from Sms Component we can now pick out the individual properties to be displayed */}
+                                                <p className="has-text-left is-size-5">To: {sm.to} </p> {/* number message is to be sent to  */}
+                                                <p className="has-text-left is-size-5">Content: {sm.content} </p> {/* content of the message */}
                                                 
                                             </div>
 
@@ -61,8 +64,8 @@ const QRCode = ({ showQR, to, content, sm }) => {
                 </div>
 
                 :
-                <div>
-                    <h1 className="title mb-4 has-text-centered">SMS</h1><br />
+                <div className="is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+                    <h1 className="title mb-4">SMS</h1><br />
                     <span className="notification is-warning has-text-weight-bold">
                         Please enter information
                     </span>
@@ -72,4 +75,4 @@ const QRCode = ({ showQR, to, content, sm }) => {
     )
 };
 
-export default QRCode;
+export default QRCode; // Qrcode is a sub-component which we are exporting for use in the component Sms

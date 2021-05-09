@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import QRCode from './EmailQR';
 
-// functional component 
-const Email = ({id}) => {
+// functional component. the new way of creating components as oppossed to using classes and then extending React.Component
+const Email = ({ id }) => {
 
     // the various states that will be managed by react hook useState
     const [email, SetEmail] = useState(null);
@@ -21,21 +21,23 @@ const Email = ({id}) => {
     const addEmail = (mail) => {
 
         //spread operator used here to handle the addition of values to the array
-        const newEmail = {...mail}
-        
+        const newEmail = { ...mail }
+
         // Set the state of our array (emails) to the new value which now holds our user supplied values
         SetEmails([newEmail]);
     }
 
-    // our functions that get the values our user has supplied directly from the input field
+    // function changeEmail takes "event" as a parameter and holds a function setEmail, which changes the state of email when updated
     const changeEmail = (event) => {
         SetEmail(event.target.value);
     };
 
+    // function changeSubject takes "event" as a parameter and holds a function setSubject, which changes the state of subject when updated
     const changeSubject = (event) => {
         SetSubject(event.target.value);
     };
 
+    // function changeBody takes "event" as a parameter and holds a function setBody, which changes the state of body when updated
     const changeBody = (event) => {
         setBody(event.target.value);
     };
@@ -51,7 +53,7 @@ const Email = ({id}) => {
         setShowQRCode(true);
 
         //the addEmail function is called and our values, email, subject, and body, are added to the array
-        addEmail({email, subject, body});
+        addEmail({ email, subject, body });
 
         // I set the states to an empty string after adding them to the array so our text fields can be empty again
         SetEmail('');
@@ -65,9 +67,12 @@ const Email = ({id}) => {
         <div className="columns is-flex is-align-items-center is-justify-content-center" id={id}>
 
             <div className="column">
-            {emails.map(mail => (
-                <QRCode key={mail.email} showQR={showQRCode} email={email} subject={subject} body={body} mail={mail}/>
-                    
+                {/* the array.map() function is used to map each mail to the qrcode tag 
+                in this case i set mail={mail} and passes as a prop so i can reference the mail properties */}
+                {emails.map(mail => (
+                    //QRCode component embedded within the div, with props being passed
+                    <QRCode key={mail.email} showQR={showQRCode} email={email} subject={subject} body={body} mail={mail} />
+
                 ))}
             </div>
             <div className="column">
@@ -76,7 +81,7 @@ const Email = ({id}) => {
                         <div className="field">
                             <label className="label has-text-left">Email</label>
                             <div className="control has-icons-left has-icons-right">
-                                <input className="input" type="email" placeholder="Someone@example.com" value={email} onInput={changeEmail} required />
+                                <input className="input" type="email" placeholder="Someone@example.com" value={email} onInput={changeEmail} required /> {/* onInput is a javascript event handler which takes a function; In this case changeEmail */}
                                 <span className="icon is-small is-left">
                                     <i className="fas fa-envelope"></i>
                                 </span>
@@ -87,14 +92,14 @@ const Email = ({id}) => {
                         <div className="field">
                             <label className="label has-text-left has-text-weight-bold">Subject</label>
                             <div className="control">
-                                <input className="input" type="text" placeholder="Subject" value={subject} onInput={changeSubject} required />
+                                <input className="input" type="text" placeholder="Subject" value={subject} onInput={changeSubject} required /> {/* onInput is a javascript event handler which takes a function; In this case changeSubject */}
                             </div>
                         </div>
 
                         <div className="field">
                             <label className="label has-text-left">body</label>
                             <div className="control">
-                                <textarea className="textarea" placeholder="Subject" value={body} onInput={changeBody} required></textarea>
+                                <textarea className="textarea" placeholder="Subject" value={body} onInput={changeBody} required></textarea> {/* onInput is a javascript event handler which takes a function; In this case changeBody */}
                             </div>
                         </div>
 
@@ -110,4 +115,4 @@ const Email = ({id}) => {
     )
 };
 
-export default Email;
+export default Email; //The component Email is exported for use in the Top-Level Component(App.tsx)

@@ -1,3 +1,4 @@
+// imports 
 import './App.css';
 import Header from './components/Header';
 import UserInfo from './components/Id/userInfo';
@@ -11,20 +12,30 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* Header Component */}
+      <Header /> 
+
+      {/* Section Component */}
       <Section />
 
       <br /><br />
-      <UserInfo id="userid"/>
 
-      <br /><br />
-      <Sms id="sms"/>
-
-      <br /><br />
-      <Email id="email" />
+      {/* UserInfo Component */}
+      <UserInfo id="userid"/> {/* prop id has been passed as a result of using react scroll library for smooth scroll which requires the id of a section you would like to scroll to as a prop */}
 
       <br /><br />
 
+      {/* Sms Component */}
+      <Sms id="sms"/> {/* prop id has been passed as a result of using react scroll library for smooth scroll which requires the id of a section you would like to scroll to as a prop */}
+
+      <br /><br />
+
+      {/* Email Component */}
+      <Email id="email" /> {/* prop id has been passed as a result of using react scroll library for smooth scroll which requires the id of a section you would like to scroll to as a prop */}
+
+      <br /><br />
+
+      {/* Footer Component */}
       <Footer />
 
       
