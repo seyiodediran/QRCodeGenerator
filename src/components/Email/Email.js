@@ -64,7 +64,7 @@ const Email = ({ id }) => {
     // return statement that holds all we see on the webpage. it uses JSX syntax that allows us embed javascript as well as variables into our html codes
     return (
 
-        <div className="columns is-flex is-align-items-center is-justify-content-center" id={id}>
+        <div className="columns columns-email is-flex is-align-items-center is-justify-content-center" id={id}>
 
             <div className="column">
                 {/* the array.map() function is used to map each mail to the qrcode tag 

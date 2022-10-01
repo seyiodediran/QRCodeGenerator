@@ -57,7 +57,7 @@ const Sms = ({ id }) => {
 
 
     return (
-        <div className="columns is-flex is-align-items-center is-justify-content-center" id={id}>
+        <div className="columns columns-sms is-flex is-align-items-center is-justify-content-center" id={id}>
             <div className="column">
                 {/* the array.map() function is used to map each user to the qrcode tag 
                 in this case i set sm={sm} and passes as a prop so i can reference the sms properties */}

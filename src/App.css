@@ -59,4 +59,10 @@
   }
 }
 
+@media screen and (max-width: 504px) {
+  .columns-email, .columns-sms .columns-id {
+    flex-direction: column;
+  }
+}
+
 

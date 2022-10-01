@@ -70,7 +70,7 @@ const UserInfo = ({id}) => {
 
     return (
 
-        <div className="cont columns is-flex is-align-items-center is-justify-content-center" id={id}>
+        <div className="cont columns columns-id is-flex is-align-items-center is-justify-content-center" id={id}>
 
             <div className="column">
 
